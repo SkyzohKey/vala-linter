@@ -20,16 +20,16 @@ namespace ValaLinter {
 
   static int main (string[] args) {
     var opt_context = new OptionContext (@"- $APP_NAME");
-  	try {
-  		opt_context.set_summary ("A simple Vala code linter tool, written in Vala!");
-  		opt_context.set_help_enabled (true);
-  		opt_context.add_main_entries (OPTIONS, null);
-  		opt_context.parse (ref args);
-  	} catch (OptionError e) {
-  		Logger.error (@"$(e.message)");
-  		Logger.info (@"Run '$(args[0]) --help' to see a full list of available options.");
-  		return 1;
-  	}
+    try {
+      opt_context.set_summary ("A simple Vala code linter tool, written in Vala!");
+      opt_context.set_help_enabled (true);
+      opt_context.add_main_entries (OPTIONS, null);
+      opt_context.parse (ref args);
+    } catch (OptionError e) {
+      Logger.error (@"$(e.message)");
+      Logger.info (@"Run '$(args[0]) --help' to see a full list of available options.");
+      return 1;
+    }
 
     ValaLinter.Options opts = ValaLinter.Options () {
       display_version = opt_version,
